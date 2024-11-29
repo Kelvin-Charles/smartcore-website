@@ -1,0 +1,198 @@
+.services {
+  padding: 0;
+  background-color: transparent;
+  margin-top: -150px;
+  position: relative;
+  z-index: 2;
+}
+
+.services-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  background: transparent;
+}
+
+.service-card {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: -1;
+}
+
+.service-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: -1;
+}
+
+/* Background images for each card */
+.service-card:nth-child(1)::before {
+  background-image: url('https://smartcore.co.tz/wp-content/uploads/2020/12/users-kisomo.jpg');
+}
+
+.service-card:nth-child(2)::before {
+  background-image: url('https://smartcore.co.tz/wp-content/uploads/2020/12/Smartcore-team.jpg');
+}
+
+.service-card:nth-child(3)::before {
+  background-image: url('https://smartcore.co.tz/wp-content/uploads/2020/12/analytics.jpg');
+}
+
+.service-card:hover::before,
+.service-card:hover::after {
+  opacity: 1;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  background-color: transparent;
+}
+
+.service-card:hover h3,
+.service-card:hover p {
+  color: #ffffff;
+  position: relative;
+  z-index: 2;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.service-card:hover .service-button {
+  background: #fbab46;
+  color: white;
+  position: relative;
+  z-index: 2;
+}
+
+.service-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.service-card h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 15px;
+  transition: color 0.3s ease;
+}
+
+.service-card p {
+  color: #666;
+  margin-bottom: 25px;
+  line-height: 1.6;
+  transition: color 0.3s ease;
+}
+
+.service-button {
+  background: white;
+  color: #333;
+  border: none;
+  padding: 0 20px;
+  height: 40px;
+  border-radius: 40px;
+  font-size: 1rem;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: none;
+  overflow: hidden;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.service-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 100%;
+  background: #fbab46;
+  transition: width 0.3s ease;
+  z-index: -1;
+  transform-origin: right;
+  border-radius: 40px;
+}
+
+.arrow-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fbab46;
+  border: none;
+  font-size: 0.6rem;
+  color: white;
+  position: relative;
+  z-index: 2;
+  margin-left: auto;
+  margin-right: -5px;
+}
+
+.service-button:hover::before {
+  width: 100%;
+  right: 0;
+}
+
+.service-button:hover {
+  color: white;
+}
+
+.service-button span {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .services {
+    margin-top: -100px;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .service-card {
+    padding: 30px 20px;
+  }
+} 
