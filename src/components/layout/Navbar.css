@@ -166,16 +166,21 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: 5px;
+  padding: 15px;
+  z-index: 1000;
+  position: relative;
+  width: 45px;
+  height: 45px;
 }
 
 .mobile-menu-button span {
   display: block;
-  width: 25px;
+  width: 30px;
   height: 3px;
   background: #333;
-  margin: 5px 0;
+  margin: 6px auto;
   transition: all 0.3s ease;
+  border-radius: 2px;
 }
 
 .social-icons {
@@ -217,45 +222,170 @@
     display: none;
   }
 
-  .contact-details {
-    flex-direction: column;
-    gap: 5px;
+  .navbar {
+    height: 60px;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   }
 
-  .contact-divider {
-    display: none;
+  .navbar-container {
+    padding: 0 15px;
+  }
+
+  .navbar-brand {
+    padding-left: 0;
+  }
+
+  .navbar-brand img {
+    height: 32px;
   }
 
   .navbar-menu {
-    display: none;
-  }
-  
-  .navbar-menu.active {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
+    position: fixed;
+    top: 60px;
     left: 0;
     right: 0;
-    background: white;
-    padding: 1rem;
-  }
-  
-  .mobile-menu-button {
-    display: block;
+    height: auto;
+    max-height: calc(100vh - 60px);
+    background: #f8f9fa;
+    padding: 15px;
+    display: none;
+    z-index: 999;
+    overflow-y: auto;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
   }
 
-  .top-bar-container {
-    flex-direction: column;
-    gap: 10px;
+  .navbar-menu.active {
+    display: block;
+    animation: slideIn 0.3s ease-out forwards;
   }
-  
-  .get-started-btn {
+
+  .navbar-menu a {
+    padding: 14px 20px;
+    margin: 8px 0;
     width: 100%;
+    text-align: left;
+    font-size: 0.95rem;
+    color: #333;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 12px;
+    height: auto;
+    transition: all 0.3s ease;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .navbar-menu a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: #fbab46;
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+
+  .navbar-menu a::after {
+    content: '\f105';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-size: 1.1rem;
+    color: #ddd;
+    transition: all 0.3s ease;
+    margin-right: 5px;
+    width: 24px;
+    height: 24px;
+    background: #f8f9fa;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
     justify-content: center;
+  }
+
+  .navbar-menu a:hover {
+    color: #fbab46;
+    background: white;
+    border-color: #fbab46;
+    transform: translateX(5px);
+    box-shadow: 0 4px 15px rgba(251, 171, 70, 0.1);
+  }
+
+  .navbar-menu a:hover::before {
+    opacity: 1;
+  }
+
+  .navbar-menu a:hover::after {
+    color: #fbab46;
+    background: rgba(251, 171, 70, 0.1);
+    transform: translateX(3px);
+  }
+
+  .mobile-menu-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    padding: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .mobile-menu-button::after {
+    content: '';
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: rgba(251, 171, 70, 0.1);
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-menu-button:hover::after {
+    opacity: 1;
+  }
+
+  .mobile-menu-button span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    margin: 2px 0;
+    background-color: #333;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 4px;
+  }
+
+  .mobile-menu-button.active::after {
+    opacity: 1;
+  }
+
+  .mobile-menu-button.active span {
+    background-color: #fbab46;
   }
 
   .social-icons {
     display: none;
   }
-} 
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

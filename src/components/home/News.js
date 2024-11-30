@@ -4,31 +4,53 @@ import './News.css';
 const News = () => {
   const newsItems = [
     {
-      title: "Smartcore Launches New E-Learning Platform",
-      date: "June 15, 2023",
-      image: "/news/elearning.jpg",
-      excerpt: "Revolutionizing digital education with our latest platform release..."
+      title: "Join Smartcore Team! Customer Service Personnel – Women Only Position",
+      date: "August 7, 2024",
+      author: "smartcore",
+      image: "https://smartcore.co.tz/wp-content/uploads/2020/12/Smartcore-team.jpg"
     },
     {
-      title: "Partnership with Ministry of Education",
-      date: "May 28, 2023",
-      image: "/news/partnership.jpg",
-      excerpt: "Strategic partnership to enhance digital education across Tanzania..."
+      title: "5 Strategies for Integrating Accessible Technologies in African Education",
+      date: "June 9, 2023",
+      author: "smartcore",
+      image: "https://smartcore.co.tz/wp-content/uploads/2020/12/analytics.jpg"
     },
     {
-      title: "Digital Library Initiative Success",
-      date: "May 10, 2023",
-      image: "/news/library.jpg",
-      excerpt: "Over 10,000 students now have access to digital learning resources..."
+      title: "The Power of Analytics: How Smartcore Helps You Make Data-Driven Decisions in Education",
+      date: "April 15, 2023",
+      author: "smartcore",
+      image: "https://smartcore.co.tz/wp-content/uploads/2020/12/users-kisomo.jpg"
+    },
+    {
+      title: "The Impact of Technology on Your Child's Education: Why It's Time to Embrace It!",
+      date: "January 25, 2023",
+      author: "smartcore",
+      image: "https://smartcore.co.tz/wp-content/uploads/2020/12/Smartcore-Enterprise-Limited-Quality-Education.jpg"
+    },
+    {
+      title: "Digital Skills for Tanzania's Youth: A Guide to Navigating the Digital Landscape",
+      date: "January 22, 2023",
+      author: "smartcore",
+      image: "https://smartcore.co.tz/wp-content/uploads/2020/12/userskisomoapp2020.jpg"
+    },
+    {
+      title: "The Facts about Technology in Education: Separating Reality from Hype in Africa",
+      date: "January 19, 2023",
+      author: "smartcore",
+      image: "https://smartcore.co.tz/wp-content/uploads/2020/12/smartcoreudom.jpg"
     }
   ];
 
   return (
-    <section className="news" id="news">
+    <section className="news-section">
       <div className="news-container">
         <div className="news-header">
-          <h2>Latest News & Updates</h2>
-          <p>Stay informed about our latest developments and initiatives</p>
+          <div className="title-with-indicators">
+            <span className="indicator left"></span>
+            <h2>Let's Share</h2>
+            <span className="indicator right"></span>
+          </div>
+          <h3>News & Updates</h3>
         </div>
         
         <div className="news-grid">
@@ -36,12 +58,14 @@ const News = () => {
             <div className="news-card" key={index}>
               <div className="news-image">
                 <img src={item.image} alt={item.title} />
-                <span className="news-date">{item.date}</span>
+                <div className="news-meta">
+                  <span className="news-date">{item.date}</span>
+                  <span className="news-author">{item.author}</span>
+                </div>
               </div>
               <div className="news-content">
-                <h3>{item.title}</h3>
-                <p>{item.excerpt}</p>
-                <button className="read-more">Read More</button>
+                <h4>{item.title}</h4>
+                <a href="#" className="read-more">Read more</a>
               </div>
             </div>
           ))}

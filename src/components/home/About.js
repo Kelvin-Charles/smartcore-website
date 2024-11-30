@@ -43,4 +43,30 @@ const About = () => {
   );
 };
 
+const VisionMissionSection = () => {
+  return (
+    <section className="vision-mission">
+      <div className="container">
+        <div className="vision-mission-cards">
+          <div className="vision">
+            <h2>Our Vision</h2>
+            <p>To help 10 Million learners in and out of schools to use technology to improve and transform their learning journey.</p>
+          </div>
+          <div className="mission">
+            <h2>Our Mission</h2>
+            <p>Making learning fun, engaging and accessible to all youth in Sub-Saharan Africa and beyond.</p>
+          </div>
+        </div>
+        
+        <div className="quote-card">
+          <blockquote>
+            "Do not confine your children to your own learning, for they were born in another time."
+          </blockquote>
+          <cite>Chinese Proverb</cite>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 export default About; 

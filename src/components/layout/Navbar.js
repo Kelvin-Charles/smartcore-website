@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+    document.body.style.overflow = !isOpen ? 'hidden' : 'auto';
+  };
 
   return (
     <>
@@ -32,17 +38,17 @@ const Navbar = () => {
       
       <nav className="navbar">
         <div className="navbar-container">
-          <a href="/" className="navbar-brand">
+          <Link to="/" className="navbar-brand">
             <img src="/images/logo.png" alt="Smartcore Enterprise Limited" />
-          </a>
+          </Link>
           
           <div className={`navbar-menu ${isOpen ? 'active' : ''}`}>
-            <a href="#home">Home</a>
-            <a href="#about">About Us</a>
-            <a href="#solutions">Our Solutions</a>
-            <a href="#people">People</a>
-            <a href="#news">News & Updates</a>
-            <a href="#contacts">Contact</a>
+            <Link to="/">Home</Link>
+            <Link to="/about">About Us</Link>
+            <Link to="/solutions">Our Solutions</Link>
+            <Link to="/people">People</Link>
+            <Link to="/news">News & Updates</Link>
+            <Link to="/contacts">Contact</Link>
           </div>
 
           <div className="social-icons">
@@ -54,8 +60,9 @@ const Navbar = () => {
           </div>
 
           <button 
-            className="mobile-menu-button"
-            onClick={() => setIsOpen(!isOpen)}
+            className={`mobile-menu-button ${isOpen ? 'active' : ''}`}
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
           >
             <span></span>
             <span></span>
